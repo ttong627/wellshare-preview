@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>희망나르미 사회적협동조합 — 쌀과 함께 희망을 나릅니다</title>
+<style>
+:root{
+  --bg:#0d0705; --panel:rgba(255,255,255,.045); --panel-b:rgba(255,255,255,.09);
+  --ink:#fff7ed; --sub:#a8a29e; --mut:#78716c;
+  --ac:#fb923c; --ac2:#fdba74; --ac-d:#c2410c;
+  --grad:linear-gradient(120deg,#ea580c,#fb923c);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard','Malgun Gothic',-apple-system,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.container{max-width:1160px;margin:0 auto;padding:0 24px}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.orbs{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(95px);opacity:.38;will-change:transform}
+.orb.a{width:520px;height:520px;background:var(--ac-d);top:-150px;left:-120px;animation:f1 20s ease-in-out infinite}
+.orb.b{width:440px;height:440px;background:var(--ac);bottom:-120px;right:-100px;animation:f2 24s ease-in-out infinite}
+@keyframes f1{0%,100%{transform:translate(0,0)}50%{transform:translate(70px,55px)}}
+@keyframes f2{0%,100%{transform:translate(0,0)}50%{transform:translate(-60px,-45px)}}
+.grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);background-size:58px 58px;mask-image:radial-gradient(ellipse 80% 55% at 50% 0%,#000 40%,transparent 100%)}
+header,main,footer{position:relative;z-index:1}
+header.nav{position:sticky;top:0;z-index:40;backdrop-filter:blur(14px);background:rgba(13,7,5,.62);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav-in{height:68px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-weight:800;font-size:16px;letter-spacing:-.4px}
+.brand small{display:block;font-size:9.5px;color:var(--mut);letter-spacing:1.5px;font-weight:600}
+.nav-links{display:flex;gap:22px}
+.nav-links a{font-size:13.5px;color:var(--sub);font-weight:600;transition:.2s}
+.nav-links a:hover,.nav-links a.on{color:#fff}
+.nav-cta{font-size:13px;font-weight:700;padding:8px 15px;border-radius:9px;background:var(--grad);color:#fff}
+@media(max-width:960px){.nav-links{display:none}}
+.hero{padding:88px 0 60px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:2px;color:var(--sub);border:1px solid var(--panel-b);background:var(--panel);padding:7px 14px;border-radius:999px;margin-bottom:24px}
+.eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--ac);box-shadow:0 0 10px var(--ac)}
+.hero h1{font-size:clamp(36px,5.6vw,64px);font-weight:800;line-height:1.1;letter-spacing:-1.5px}
+.hero p.sub{margin-top:22px;font-size:clamp(15px,2vw,18px);color:var(--sub);max-width:620px}
+.hero .cta-row{margin-top:34px;display:flex;gap:12px;flex-wrap:wrap}
+.btn-p{background:var(--grad);color:#fff;font-weight:700;padding:14px 28px;border-radius:12px;font-size:15px;box-shadow:0 12px 36px rgba(234,88,12,.32);transition:.25s}
+.btn-p:hover{transform:translateY(-2px)}
+.btn-g{border:1px solid var(--panel-b);background:var(--panel);color:#fff;font-weight:700;padding:14px 28px;border-radius:12px;font-size:15px;transition:.25s}
+.btn-g:hover{background:rgba(255,255,255,.08)}
+.hero-3d{margin-top:56px;perspective:1300px}
+.hero-badges{display:flex;gap:14px;flex-wrap:wrap;transform-style:preserve-3d;transition:transform .3s ease-out}
+.hbadge{flex:1;min-width:140px;background:var(--panel);border:1px solid var(--panel-b);border-radius:15px;padding:18px;backdrop-filter:blur(8px)}
+.hbadge .k{font-size:22px;font-weight:800}
+.hbadge .l{font-size:12px;color:var(--sub);margin-top:3px}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
+section.blk{padding:88px 0}
+.sec-head{max-width:680px;margin:0 auto 48px;text-align:center}
+.sec-head .kick{font-size:12.5px;font-weight:800;letter-spacing:3px;color:var(--ac2)}
+.sec-head h2{font-size:clamp(26px,3.6vw,38px);font-weight:800;letter-spacing:-.8px;margin:10px 0 8px}
+.sec-head p{color:var(--sub);font-size:15px}
+.card{background:var(--panel);border:1px solid var(--panel-b);border-radius:18px;padding:26px;transition:.25s}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:820px){.two{grid-template-columns:1fr}}
+.mp{border-left:3px solid var(--ac)}.mp h3{font-size:16px;color:var(--ac2)}.mp p{margin-top:8px;color:var(--sub);font-size:14.5px}
+.ci{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:32px}
+@media(max-width:820px){.ci{grid-template-columns:repeat(2,1fr)}}
+.ci .c{background:var(--panel);border:1px solid var(--panel-b);border-radius:14px;padding:22px 14px;text-align:center;transition:.25s}
+.ci .c:hover{transform:translateY(-3px);border-color:var(--ac)}
+.ci .c .e{font-size:28px}.ci .c h4{margin:10px 0 3px;font-size:15px}.ci .c p{font-size:12px;color:var(--sub)}
+.org{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:30px}
+@media(max-width:820px){.org{grid-template-columns:1fr}}
+.org .o{background:var(--panel);border:1px solid var(--panel-b);border-radius:12px;padding:18px 20px}
+.org .o h4{font-size:15px;color:var(--ac2);margin-bottom:6px}.org .o p{font-size:13px;color:var(--sub)}
+.biz-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:820px){.biz-grid{grid-template-columns:1fr}}
+.biz{background:var(--panel);border:1px solid var(--panel-b);border-radius:16px;padding:24px;transition:.25s;position:relative;overflow:hidden}
+.biz:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.2)}
+.biz.hl{background:linear-gradient(160deg,rgba(251,146,60,.1),rgba(255,255,255,.03))}
+.biz .ic{width:48px;height:48px;border-radius:13px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px}
+.biz h4{font-size:16px;font-weight:700}.biz p{font-size:13px;color:var(--sub);margin-top:8px}
+.biz .tag{display:inline-block;margin-top:12px;font-size:11px;font-weight:700;color:var(--ac2);background:rgba(251,146,60,.14);border-radius:6px;padding:3px 9px}
+/* 배송 프로세스 */
+.proc{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px}
+@media(max-width:820px){.proc{grid-template-columns:repeat(2,1fr)}}
+.proc .p{background:var(--panel);border:1px solid var(--panel-b);border-radius:14px;padding:22px 16px;text-align:center;position:relative}
+.proc .p .st{font-size:12px;font-weight:800;color:var(--ac2)}
+.proc .p .ti{font-size:14.5px;font-weight:700;margin:6px 0 4px}
+.proc .p .de{font-size:12px;color:var(--sub)}
+.sys-cta{margin-top:26px;display:flex;justify-content:center}
+.sys-cta a{display:inline-flex;align-items:center;gap:10px;background:var(--panel);border:1px solid var(--ac);color:var(--ac2);font-weight:700;padding:14px 26px;border-radius:12px;font-size:14.5px;transition:.25s}
+.sys-cta a:hover{background:var(--grad);color:#fff;border-color:transparent}
+/* 소식 */
+.newslist{max-width:780px;margin:0 auto}
+.nrow{display:flex;justify-content:space-between;gap:16px;align-items:center;background:var(--panel);border:1px solid var(--panel-b);border-radius:12px;padding:16px 20px;margin-bottom:10px;transition:.2s}
+.nrow:hover{border-color:var(--ac);transform:translateX(4px)}
+.nrow .tt{font-size:14px}.nrow .badge{font-size:11px;font-weight:700;color:var(--ac2);background:rgba(251,146,60,.14);border-radius:6px;padding:2px 8px;margin-right:8px}
+.nrow .dt{font-size:12px;color:var(--mut);white-space:nowrap}
+/* 지부 */
+.chips{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;max-width:820px;margin:0 auto}
+.chips .c{background:var(--panel);border:1px solid var(--panel-b);border-radius:10px;padding:9px 16px;font-size:13.5px;font-weight:600;transition:.25s}
+.chips .c:hover{background:var(--grad);border-color:transparent;transform:translateY(-3px)}
+/* 고객센터 */
+.cc{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:820px){.cc{grid-template-columns:1fr}}
+.cc .info p{font-size:14px;color:var(--sub);padding:10px 0;border-bottom:1px solid var(--panel-b)}
+.cc .info p b{color:var(--ink);display:inline-block;width:64px}
+.form input,.form textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--panel-b);border-radius:10px;padding:12px 14px;color:var(--ink);font-size:14px;margin-bottom:10px;font-family:inherit}
+.form input::placeholder,.form textarea::placeholder{color:var(--mut)}
+.form button{width:100%;background:var(--grad);color:#fff;font-weight:700;padding:13px;border:0;border-radius:10px;font-size:14.5px;cursor:pointer}
+footer{border-top:1px solid rgba(255,255,255,.06);margin-top:40px;padding:40px 0 56px;color:var(--mut);font-size:13px}
+.foot-b{margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.06);text-align:center;font-size:12px}
+.note{position:relative;z-index:2;background:rgba(245,158,11,.12);border-bottom:1px solid rgba(245,158,11,.3);color:#fcd34d;font-size:12.5px;padding:8px 14px;text-align:center}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}.reveal{opacity:1;transform:none;transition:none}.orb{display:none}}
+</style>
+</head>
+<body>
+<div class="note">📐 희망나르미 <b>3D 통일 디자인 페이지</b> · 표준 6대메뉴 전 섹션(소개·사업·배송시스템·소식·고객센터·지부) · narami.co.kr 실측</div>
+<div class="orbs"><div class="orb a"></div><div class="orb b"></div></div>
+<div class="grid-bg"></div>
+
+<header class="nav"><div class="container nav-in">
+  <div class="brand">희망나르미 사회적협동조합<small>HOPE NARAMI</small></div>
+  <nav class="nav-links"><a href="#intro" class="on">소개</a><a href="#biz">사업</a><a href="#sys">배송·시스템</a><a href="#news">소식</a><a href="#branch">지부</a><a href="#contact">고객센터</a></nav>
+  <a href="#sys" class="nav-cta">조회시스템</a>
+</div></header>
+
+<main>
+<section class="hero"><div class="container">
+  <div class="eyebrow"><span class="dot"></span>HOPE NARAMI · 전국 배송 네트워크</div>
+  <h1>어려운 이웃에게<br><span class="grad-text">쌀과 함께 희망을 나릅니다</span></h1>
+  <p class="sub">취약계층 일자리 창출을 지향하는 희망나르미는 이웃이 이웃에게 희망을 전하는 <b style="color:#fed7aa">따뜻한 배송</b>을 실천하는 전국 물류 사회적협동조합입니다.</p>
+  <div class="cta-row"><a href="#biz" class="btn-p">사업분야 보기</a><a href="#branch" class="btn-g">전국 지부 →</a></div>
+  <div class="hero-3d"><div class="hero-badges" id="tilt">
+    <div class="hbadge"><div class="k grad-text">월 65만포</div><div class="l">정부양곡 배송량</div></div>
+    <div class="hbadge"><div class="k grad-text">50만세대</div><div class="l">전국 배송 대상</div></div>
+    <div class="hbadge"><div class="k grad-text">166개</div><div class="l">전국 회원사</div></div>
+    <div class="hbadge"><div class="k grad-text">14광역</div><div class="l">지부 네트워크</div></div>
+  </div></div>
+</div></section>
+
+<!-- 소개 -->
+<section class="blk" id="intro"><div class="container">
+  <div class="sec-head reveal"><div class="kick">ABOUT</div><h2>2010년 시범사업에서 전국 네트워크로</h2><p>2010년 정부양곡배송 시범사업으로 시작해 2012년 제1호 전국자활기업, 2016년 사회적협동조합으로 발전해 왔습니다.</p></div>
+  <div class="two">
+    <div class="card mp reveal"><h3>비전 (Vision)</h3><p>신뢰와 혁신으로 함께하는 최고의 물류 파트너</p></div>
+    <div class="card mp reveal d1"><h3>미션 (Mission)</h3><p>취약계층 일자리 제공과 따뜻한 지역사회 만들기</p></div>
+  </div>
+  <div class="ci reveal d2">
+    <div class="c"><div class="e">🕊️</div><h4>비둘기</h4><p>전달, 평화</p></div>
+    <div class="c"><div class="e">🌈</div><h4>무지개</h4><p>희망, 꿈</p></div>
+    <div class="c"><div class="e">🤝</div><h4>손</h4><p>협동, 노동의 가치</p></div>
+    <div class="c"><div class="e">😊</div><h4>웃음</h4><p>행복, 보람</p></div>
+  </div>
+  <div class="org reveal d3">
+    <div class="o"><h4>총회 · 이사회</h4><p>결산·사업계획·예산 심의 의결, 정관 변경, 사업 집행 의결</p></div>
+    <div class="o"><h4>상설위원회</h4><p>집행 · 윤리·선정 · 인사 · 선거관리위원회</p></div>
+    <div class="o"><h4>전문위원회</h4><p>교육 · 직무분석 · 동반성장위원회</p></div>
+    <div class="o"><h4>지역본부</h4><p>전국 14개 광역 지역본부의 현장 배송·사회공헌</p></div>
+  </div>
+</div></section>
+
+<!-- 사업 -->
+<section class="blk" id="biz"><div class="container">
+  <div class="sec-head reveal"><div class="kick">BUSINESS</div><h2>희망나르미의 5대 사업</h2><p>전국 배송 네트워크 기반으로 정부양곡부터 미곡유통·영양지원·사회공헌까지 수행합니다.</p></div>
+  <div class="biz-grid">
+    <div class="biz hl reveal"><div class="ic">🍚</div><h4>정부양곡 배송사업</h4><p>양곡관리법 근거, 농림축산식품부 위탁. 기초생활수급자·차상위계층에 따뜻하게 배송.</p><span class="tag">월 65만포·50만세대·수수료 3.5%</span></div>
+    <div class="biz reveal d1"><div class="ic">🌾</div><h4>미곡유통사업</h4><p>농협·RPC 연계 최고 품질 쌀 유통. 만세보령쌀(삼광) 대표브랜드 대상 수상.</p><span class="tag">만세보령쌀 삼광米</span></div>
+    <div class="biz reveal d2"><div class="ic">🍼</div><h4>영양플러스 배송사업</h4><p>영양 위험이 큰 임산부·영유아에게 필수 영양식품을 지원하는 평생관리형 사업.</p><span class="tag">임산부·영유아</span></div>
+    <div class="biz reveal"><div class="ic">🏠</div><h4>경로당 양곡배송</h4><p>보건복지부 노인정책과 사업. 매월 수요 취합 후 지역 경로당 직접 배달.</p><span class="tag">전국 경로당</span></div>
+    <div class="biz reveal d1"><div class="ic">💝</div><h4>사회공헌사업</h4><p>전국 네트워크 기반 기부물품 배송과 CSR·CSV. 지정기부단체·기업 연계.</p><span class="tag">CSR·CSV</span></div>
+  </div>
+</div></section>
+
+<!-- 배송·시스템 -->
+<section class="blk" id="sys"><div class="container">
+  <div class="sec-head reveal"><div class="kick">DELIVERY · SYSTEM</div><h2>정부양곡 배송 프로세스</h2><p>지역자활센터 배송사업단과 물류자활기업을 통해 취약계층에게 따뜻한 배송을 실천합니다.</p></div>
+  <div class="proc reveal">
+    <div class="p"><div class="st">STEP 01</div><div class="ti">위탁·수요취합</div><div class="de">농식품부 위탁, 대상자 명단·수량 취합</div></div>
+    <div class="p"><div class="st">STEP 02</div><div class="ti">양곡 준비</div><div class="de">정부양곡 입고·검수·소분 준비</div></div>
+    <div class="p"><div class="st">STEP 03</div><div class="ti">지역 배송</div><div class="de">지역자활센터·자활기업 배송사업단 배송</div></div>
+    <div class="p"><div class="st">STEP 04</div><div class="ti">수령 확인</div><div class="de">수급자 수령 확인 및 실적 관리</div></div>
+  </div>
+  <div class="sys-cta reveal d1"><a href="http://narami.or.kr/admin">🔒 정부양곡배송사업 조회시스템 (narami.or.kr)</a></div>
+</div></section>
+
+<!-- 소식 -->
+<section class="blk" id="news"><div class="container">
+  <div class="sec-head reveal"><div class="kick">NEWS</div><h2>조합 소식 · 공지사항</h2><p>전국 희망나르미의 다양한 소식과 조합 공지를 만나보세요.</p></div>
+  <div class="newslist">
+    <div class="nrow reveal"><div class="tt"><span class="badge">조합소식</span>2026년도 이사·지역본부장 통합워크숍 개최</div><div class="dt">2026.06.25</div></div>
+    <div class="nrow reveal"><div class="tt"><span class="badge">지부소식</span>충남지부 사회공헌 취약계층 물품지원 「희망바람」 전달</div><div class="dt">2026.06.22</div></div>
+    <div class="nrow reveal d1"><div class="tt"><span class="badge">지부소식</span>강원지부 (주)강릉희망유통, 취약계층 아동 후원물품 전달</div><div class="dt">2026.05.07</div></div>
+    <div class="nrow reveal d1"><div class="tt"><span class="badge">공지</span>제4기 임원선거 당선인 공고</div><div class="dt">2026.03.11</div></div>
+    <div class="nrow reveal d2"><div class="tt"><span class="badge">공지</span>제10차 정기총회 개최공고</div><div class="dt">2026.02.19</div></div>
+  </div>
+</div></section>
+
+<!-- 지부 -->
+<section class="blk" id="branch"><div class="container">
+  <div class="sec-head reveal"><div class="kick">BRANCHES</div><h2>전국 14개 광역 · 166개 회원사</h2><p>광역 단위 지역본부와 회원 자활기업이 촘촘한 배송 네트워크를 이룹니다.</p></div>
+  <div class="chips reveal">
+    <div class="c">서울(제주)</div><div class="c">부산(울산)</div><div class="c">대구</div><div class="c">인천</div><div class="c">광주</div><div class="c">대전</div><div class="c">경기</div><div class="c">경남</div><div class="c">경북</div><div class="c">전남</div><div class="c">전북</div><div class="c">충남(세종)</div><div class="c">충북</div><div class="c">강원</div>
+  </div>
+</div></section>
+
+<!-- 고객센터 -->
+<section class="blk" id="contact"><div class="container">
+  <div class="sec-head reveal"><div class="kick">CONTACT</div><h2>메일 문의</h2><p>희망나르미는 다양한 채널을 통해 항상 소통합니다.</p></div>
+  <div class="cc">
+    <div class="card info reveal">
+      <p><b>주소</b> (04380) 서울특별시 용산구 이촌로 103 천일빌딩 전면 2층(후면 3층)</p>
+      <p><b>이사장</b> 심재옥</p>
+      <p><b>사업자</b> 490-82-00102</p>
+      <p style="border:0"><b>시스템</b> 정부양곡배송사업 조회시스템 운영</p>
+    </div>
+    <form class="card form reveal d1" onsubmit="return false">
+      <input placeholder="이름 (필수)"><input placeholder="이메일 (필수)"><input placeholder="연락처">
+      <textarea rows="4" placeholder="문의 내용"></textarea>
+      <button>메일 문의하기</button>
+    </form>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="container">
+  <div style="font-size:13px;line-height:1.9">
+    <b style="color:var(--ink)">기업명</b> 희망나르미사회적협동조합 &nbsp;|&nbsp; <b style="color:var(--ink)">이사장</b> 심재옥 &nbsp;|&nbsp; <b style="color:var(--ink)">사업자등록번호</b> 490-82-00102<br>
+    (04380) 서울특별시 용산구 이촌로 103 천일빌딩 2층 &nbsp;|&nbsp; 정부양곡배송 조회시스템 운영
+  </div>
+  <div class="foot-b">© 2026 희망나르미사회적협동조합 · 3D 통일 디자인 페이지(목업) · narami.co.kr 실측 기반 · 수치 창작 없음</div>
+</div></footer>
+
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const tilt=document.getElementById('tilt');
+if(tilt&&!matchMedia('(prefers-reduced-motion: reduce)').matches){const h=tilt.closest('.hero');
+  h.addEventListener('mousemove',ev=>{const r=h.getBoundingClientRect();const x=(ev.clientX-r.left)/r.width-.5,y=(ev.clientY-r.top)/r.height-.5;tilt.style.transform=`rotateY(${x*9}deg) rotateX(${-y*9}deg)`;});
+  h.addEventListener('mouseleave',()=>tilt.style.transform='');}
+</script>
+</body>
+</html>

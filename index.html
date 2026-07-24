@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>웰쉐어 그룹 웹사이트 리뉴얼 시안 — 미리보기</title>
+<style>
+:root{--bg:#060810;--panel:rgba(255,255,255,.045);--panel-b:rgba(255,255,255,.09);--ink:#f1f5f9;--sub:#94a3b8;--mut:#64748b;
+--wssc:#3b82f6;--logis:#14b8a6;--narami:#fb923c;--grad:linear-gradient(120deg,#3b82f6,#14b8a6 55%,#fb923c)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Pretendard','Malgun Gothic',-apple-system,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;min-height:100vh;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.container{max-width:1120px;margin:0 auto;padding:0 24px}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.orb{position:fixed;border-radius:50%;filter:blur(100px);opacity:.4;z-index:0;pointer-events:none}
+.orb.a{width:500px;height:500px;background:#1d4ed8;top:-140px;left:-120px}
+.orb.b{width:440px;height:440px;background:#0d9488;bottom:-120px;right:-100px}
+.orb.c{width:380px;height:380px;background:#ea580c;top:38%;left:56%;opacity:.28}
+main{position:relative;z-index:1}
+header{padding:80px 0 40px;text-align:center}
+.eyebrow{display:inline-flex;gap:8px;align-items:center;font-size:12px;font-weight:700;letter-spacing:2px;color:var(--sub);border:1px solid var(--panel-b);background:var(--panel);padding:7px 15px;border-radius:999px;margin-bottom:24px}
+.eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--logis);box-shadow:0 0 10px var(--logis)}
+header h1{font-size:clamp(32px,5vw,54px);font-weight:800;letter-spacing:-1.5px;line-height:1.1}
+header p{color:var(--sub);margin-top:18px;font-size:16px;max-width:600px;margin-left:auto;margin-right:auto}
+.section-t{font-size:13px;font-weight:800;letter-spacing:2px;color:var(--sub);margin:56px 0 18px;padding-left:12px;border-left:3px solid;border-image:var(--grad) 1}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:860px){.grid{grid-template-columns:1fr}}
+.card{display:block;background:var(--panel);border:1px solid var(--panel-b);border-radius:20px;padding:28px;transition:.25s;position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;opacity:.9}
+.card:hover{transform:translateY(-6px);border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.06)}
+.card .badge{font-size:11.5px;font-weight:800;letter-spacing:1px;padding:5px 11px;border-radius:999px;display:inline-block;margin-bottom:16px}
+.card h3{font-size:20px;font-weight:800;letter-spacing:-.5px}
+.card p{font-size:13.5px;color:var(--sub);margin-top:8px}
+.card .go{margin-top:16px;font-size:13px;font-weight:700;color:var(--ink);display:inline-flex;align-items:center;gap:6px}
+.feat{grid-column:1/-1;background:linear-gradient(130deg,rgba(59,130,246,.14),rgba(20,184,166,.1),rgba(251,146,60,.14))}
+.feat::before{background:var(--grad)}
+.feat h3{font-size:26px}
+.c-wssc::before{background:var(--wssc)} .c-wssc .badge{background:rgba(59,130,246,.16);color:#93c5fd}
+.c-logis::before{background:var(--logis)} .c-logis .badge{background:rgba(20,184,166,.16);color:#5eead4}
+.c-narami::before{background:var(--narami)} .c-narami .badge{background:rgba(251,146,60,.16);color:#fdba74}
+.c-doc::before{background:#64748b} .c-doc .badge{background:rgba(148,163,184,.16);color:#cbd5e1}
+footer{position:relative;z-index:1;text-align:center;color:var(--mut);font-size:12.5px;padding:60px 0 50px;margin-top:40px;border-top:1px solid rgba(255,255,255,.06)}
+</style>
+</head>
+<body>
+<div class="orb a"></div><div class="orb b"></div><div class="orb c"></div>
+<main class="container">
+  <header>
+    <div class="eyebrow"><span class="dot"></span>WELL·SHARE GROUP · REDESIGN PREVIEW</div>
+    <h1>웰쉐어 그룹 웹사이트<br><span class="grad-text">리뉴얼 시안 미리보기</span></h1>
+    <p>사협·로지스·희망나르미 3사 웹사이트를 전 페이지 실측하고, 통합 IA와 3D 통일 디자인으로 재설계한 시안 모음입니다.</p>
+  </header>
+
+  <div class="section-t">⭐ 통합 · 대표 시안</div>
+  <div class="grid">
+    <a class="card feat" href="group-3d.html">
+      <span class="badge" style="background:rgba(255,255,255,.12);color:#fff">GROUP · 3D</span>
+      <h3>웰쉐어 그룹 통합 3D 랜딩</h3>
+      <p>3사 데이터를 하나로 통합한 다크 프리미엄 3D 애니메이션 랜딩. 틸트 카드·스크롤 리빌·통계 카운트업·부유 오브.</p>
+      <span class="go">열기 →</span>
+    </a>
+  </div>
+
+  <div class="section-t">🎨 3사 개별 페이지 · 3D 통일 디자인 (소개·사업·소식·고객센터)</div>
+  <div class="grid">
+    <a class="card c-wssc" href="wssc.html"><span class="badge">사협 · 블루</span><h3>웰쉐어 사회적협동조합</h3><p>공공유통 전문 사협. 소개·사업6·소식·고객센터.</p><span class="go">열기 →</span></a>
+    <a class="card c-logis" href="logis.html"><span class="badge">로지스 · 틸</span><h3>㈜웰쉐어로지스</h3><p>수도권 간선운송. 배송·시스템(25지역·시설8)·공지·고객센터.</p><span class="go">열기 →</span></a>
+    <a class="card c-narami" href="narami.html"><span class="badge">narami · 오렌지</span><h3>희망나르미 사협</h3><p>전국 배송 네트워크. CI·조직·5대사업·배송프로세스·소식·지부.</p><span class="go">열기 →</span></a>
+  </div>
+
+  <div class="section-t">🗂 분석 · 초기 시안 (밝은 테마)</div>
+  <div class="grid">
+    <a class="card c-doc" href="sitemap.html"><span class="badge">SITEMAP</span><h3>통합 사이트맵</h3><p>3사 AS-IS 구조 + 6대메뉴 TO-BE 표준 IA + 이관 매핑 + P0 이슈.</p><span class="go">열기 →</span></a>
+    <a class="card c-wssc" href="wssc-light.html"><span class="badge">사협 · Light</span><h3>사협 소개·사업 시안</h3><p>설립이념·사명·연혁·6대 사업 (밝은 테마 버전).</p><span class="go">열기 →</span></a>
+    <a class="card c-logis" href="logis-light.html"><span class="badge">로지스 · Light</span><h3>로지스 소개·사업 시안</h3><p>서비스지역·시설현황 (밝은 테마 버전).</p><span class="go">열기 →</span></a>
+    <a class="card c-narami" href="narami-light.html"><span class="badge">narami · Light</span><h3>narami 소개·사업 시안</h3><p>통계배지·CI·5대사업·연혁·지부 (밝은 테마 버전).</p><span class="go">열기 →</span></a>
+  </div>
+</main>
+<footer>© 2026 WELL·SHARE GROUP · 웹사이트 리뉴얼 시안 미리보기 · 3사 웹사이트 실측(2026-07-24) 기반 · 수치 창작 없음</footer>
+</body>
+</html>

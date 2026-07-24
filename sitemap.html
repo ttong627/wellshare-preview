@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>웰쉐어 3사 웹사이트 통합 사이트맵</title>
+<style>
+  :root{
+    --wssc:#2563eb; --wssc-bg:#eff6ff;
+    --logis:#0d9488; --logis-bg:#f0fdfa;
+    --narami:#ea580c; --narami-bg:#fff7ed;
+    --ink:#0f172a; --sub:#475569; --line:#e2e8f0; --card:#ffffff; --bg:#f8fafc;
+    --ok:#16a34a; --warn:#dc2626;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Pretendard','Malgun Gothic',-apple-system,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;padding:32px 20px 64px}
+  .wrap{max-width:1180px;margin:0 auto}
+  header{text-align:center;margin-bottom:36px}
+  header h1{font-size:30px;font-weight:800;letter-spacing:-.5px}
+  header p{color:var(--sub);margin-top:8px;font-size:14px}
+  .badge-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+  .tag{font-size:12px;font-weight:600;padding:5px 12px;border-radius:999px;background:#fff;border:1px solid var(--line)}
+  h2.section{font-size:20px;font-weight:800;margin:44px 0 18px;padding-left:12px;border-left:5px solid var(--ink)}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media(max-width:900px){.grid3{grid-template-columns:1fr}}
+  .site{background:var(--card);border-radius:16px;border:1px solid var(--line);overflow:hidden;box-shadow:0 1px 3px rgba(15,23,42,.06)}
+  .site-head{padding:16px 18px;color:#fff}
+  .site-head h3{font-size:17px;font-weight:800}
+  .site-head .url{font-size:12px;opacity:.9;font-family:monospace;margin-top:2px}
+  .site-head .meta{font-size:12px;opacity:.92;margin-top:6px}
+  .s-wssc .site-head{background:var(--wssc)} .s-logis .site-head{background:var(--logis)} .s-narami .site-head{background:var(--narami)}
+  .menu{padding:14px 16px 18px}
+  .m1{font-weight:700;font-size:14px;margin-top:12px;display:flex;align-items:center;gap:6px}
+  .m1:first-child{margin-top:0}
+  .m1 .dot{width:7px;height:7px;border-radius:50%;flex:0 0 auto}
+  .s-wssc .dot{background:var(--wssc)} .s-logis .dot{background:var(--logis)} .s-narami .dot{background:var(--narami)}
+  .m2{list-style:none;margin:5px 0 0 15px;padding-left:12px;border-left:1.5px dashed var(--line)}
+  .m2 li{font-size:12.5px;color:var(--sub);padding:2px 0}
+  .ext{font-size:11px;font-weight:700;color:#fff;background:#64748b;border-radius:5px;padding:1px 6px;margin-left:4px}
+  .count{display:inline-block;font-size:11px;color:var(--sub);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:1px 7px;margin-left:6px}
+  /* TO-BE */
+  .tobe{background:linear-gradient(180deg,#0f172a,#1e293b);border-radius:18px;padding:26px 22px;color:#e2e8f0}
+  .tobe h3{color:#fff;font-size:16px;text-align:center;margin-bottom:4px}
+  .tobe .sub{text-align:center;font-size:12.5px;color:#94a3b8;margin-bottom:22px}
+  .std{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+  @media(max-width:900px){.std{grid-template-columns:repeat(2,1fr)}}
+  .col{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:14px 12px}
+  .col h4{font-size:14px;color:#fff;margin-bottom:10px;display:flex;gap:6px;align-items:center}
+  .col h4 .n{width:20px;height:20px;border-radius:6px;background:#3b82f6;color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center;font-weight:700}
+  .col ul{list-style:none;font-size:12px;color:#cbd5e1}
+  .col li{padding:3px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+  .col li:last-child{border:0}
+  .login-col h4 .n{background:#f59e0b}
+  /* mapping */
+  table.map{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;border:1px solid var(--line);font-size:13px}
+  table.map th,table.map td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  table.map th{background:#0f172a;color:#fff;font-size:12.5px}
+  table.map td:first-child{font-weight:700;white-space:nowrap}
+  table.map tr:last-child td{border-bottom:0}
+  .c-wssc{color:var(--wssc);font-weight:600} .c-logis{color:var(--logis);font-weight:600} .c-narami{color:var(--narami);font-weight:600}
+  /* issues */
+  .issues{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  @media(max-width:900px){.issues{grid-template-columns:1fr}}
+  .issue{background:#fff;border:1px solid var(--line);border-left:5px solid var(--warn);border-radius:12px;padding:16px}
+  .issue .lv{font-size:11px;font-weight:800;color:var(--warn);letter-spacing:.5px}
+  .issue h4{font-size:14px;margin:6px 0 4px}
+  .issue p{font-size:12.5px;color:var(--sub)}
+  footer{text-align:center;margin-top:48px;font-size:12px;color:#94a3b8}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>웰쉐어 3사 웹사이트 통합 사이트맵</h1>
+    <p>사협 · 로지스 · 정부양곡(희망나르미) — 실측 기반 IA 분석 &amp; 통합 표준 설계</p>
+    <div class="badge-row">
+      <span class="tag">📅 실측일 2026-07-24</span>
+      <span class="tag">🔎 전 페이지 19종 실측</span>
+      <span class="tag">🏢 김기흥 / 손한국 / 심재옥</span>
+    </div>
+  </header>
+
+  <!-- AS-IS -->
+  <h2 class="section">① 현행 사이트맵 (AS-IS)</h2>
+  <div class="grid3">
+
+    <!-- 사협 -->
+    <div class="site s-wssc">
+      <div class="site-head">
+        <h3>사협 · 웰쉐어 사회적협동조합</h3>
+        <div class="url">wssc.co.kr</div>
+        <div class="meta">비영리 사협 · 이사장 김기흥 · 경기 수원 · 5대메뉴/2단</div>
+      </div>
+      <div class="menu">
+        <div class="m1"><span class="dot"></span>처음으로</div>
+        <div class="m1"><span class="dot"></span>웰쉐어소개</div>
+        <ul class="m2"><li>설립이념 · 기업정신 · 사명 · 목적 · 조직현황 · 연혁</li></ul>
+        <div class="m1"><span class="dot"></span>사업소개</div>
+        <ul class="m2"><li>공공유통위탁 · 간선/지선물류 · 교육훈련 · 조합간협력</li></ul>
+        <div class="m1"><span class="dot"></span>조합소식</div>
+        <ul class="m2"><li>보도자료</li><li>웰쉐어스토리</li></ul>
+        <div class="m1"><span class="dot"></span>고객센터</div>
+        <ul class="m2"><li>공지사항</li><li>방문 및 상담/문의 (지도+폼)</li></ul>
+      </div>
+    </div>
+
+    <!-- 로지스 -->
+    <div class="site s-logis">
+      <div class="site-head">
+        <h3>로지스 · ㈜웰쉐어로지스</h3>
+        <div class="url">wslogis.co.kr</div>
+        <div class="meta">영리 주식회사 · 대표 손한국 · 경기 화성 · 6대메뉴/1단</div>
+      </div>
+      <div class="menu">
+        <div class="m1"><span class="dot"></span>웰쉐어로지스 소개</div>
+        <ul class="m2"><li>미션 · 사훈</li></ul>
+        <div class="m1"><span class="dot"></span>사업영역</div>
+        <ul class="m2"><li>화물운송 · 식품운반 · 사회공헌</li><li>정부양곡 간선(경기18+서울7) · 시설현황</li></ul>
+        <div class="m1"><span class="dot"></span>최근활동</div>
+        <div class="m1"><span class="dot"></span>공지사항</div>
+        <div class="m1"><span class="dot"></span>오시는길</div>
+        <div class="m1"><span class="dot"></span>배송시스템<span class="ext">외부 admin</span></div>
+        <div class="m1"><span class="dot"></span>제휴·상담 <span class="count">상시 CTA</span></div>
+      </div>
+    </div>
+
+    <!-- narami -->
+    <div class="site s-narami">
+      <div class="site-head">
+        <h3>정부양곡 · 희망나르미 사협</h3>
+        <div class="url">narami.co.kr</div>
+        <div class="meta">비영리 사협 · 이사장 심재옥 · 서울 용산 · 5대메뉴/2단 (최다)</div>
+      </div>
+      <div class="menu">
+        <div class="m1"><span class="dot"></span>희망나르미 소개 <span class="count">7</span></div>
+        <ul class="m2"><li>조합개요 · 인사말 · CI소개 · 조직구성</li><li>연혁 · 지부현황(166개) · 오시는길</li></ul>
+        <div class="m1"><span class="dot"></span>사업분야 <span class="count">5</span></div>
+        <ul class="m2"><li>정부양곡배송 · 미곡유통 · 영양플러스</li><li>경로당 양곡배송 · 사회공헌</li></ul>
+        <div class="m1"><span class="dot"></span>공지사항 <span class="count">4</span></div>
+        <ul class="m2"><li>공지 · 자료실 · 조합일정 · 메일문의</li></ul>
+        <div class="m1"><span class="dot"></span>조합소식</div>
+        <ul class="m2"><li>조합소식 · 지부소식</li></ul>
+        <div class="m1"><span class="dot"></span>정부양곡 조회시스템<span class="ext">외부 admin</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TO-BE -->
+  <h2 class="section">② 통합 표준 IA (TO-BE) — 6 대메뉴 + 전용 로그인</h2>
+  <div class="tobe">
+    <h3>3사 공통 골격 · narami 완성도를 표준으로</h3>
+    <div class="sub">대메뉴 이름·순서·URL 규칙을 3사 동일 → 사별로 불필요한 하위만 숨김</div>
+    <div class="std">
+      <div class="col"><h4><span class="n">1</span>소개</h4><ul><li>인사말</li><li>조합개요</li><li>연혁</li><li>CI/BI</li><li>조직구성</li><li>지부현황*</li></ul></div>
+      <div class="col"><h4><span class="n">2</span>사업</h4><ul><li>사업 개요</li><li>개별 사업 상세</li><li>파트너</li></ul></div>
+      <div class="col"><h4><span class="n">3</span>배송·시스템</h4><ul><li>서비스 지역</li><li>배송 프로세스</li><li>시설·차량</li></ul></div>
+      <div class="col"><h4><span class="n">4</span>소식</h4><ul><li>공지사항</li><li>활동소식</li><li>보도/자료실</li><li>조합일정</li></ul></div>
+      <div class="col"><h4><span class="n">5</span>고객센터</h4><ul><li>오시는길</li><li>문의(폼)</li><li>FAQ</li><li>약관</li></ul></div>
+      <div class="col login-col"><h4><span class="n">↪</span>전용</h4><ul><li>로그인/조회</li><li>외부 시스템</li><li>admin</li></ul></div>
+    </div>
+  </div>
+
+  <!-- Mapping -->
+  <h2 class="section">③ 사별 이관 매핑 (같은 골격, 다른 콘텐츠)</h2>
+  <table class="map">
+    <thead><tr><th>표준 대메뉴</th><th class="c-wssc">사협</th><th class="c-logis">로지스</th><th class="c-narami">정부양곡</th></tr></thead>
+    <tbody>
+      <tr><td>①소개</td><td>about 분해 + 인사말·CI·조직 신설</td><td>intro + 연혁·조직 신설</td><td>7종 完 + 지부현황</td></tr>
+      <tr><td>②사업</td><td>biz 분해(공공유통·물류·기타)</td><td>biz 분해(운송·식품·간선·공헌)</td><td>5개 사업 完</td></tr>
+      <tr><td>③배송·시스템</td><td>약함 → "공공유통 프로세스"</td><td>서비스지역+시설+배송시스템 로그인</td><td>배송 프로세스+조회시스템</td></tr>
+      <tr><td>④소식</td><td>보도·스토리·공지</td><td>최근활동·공지</td><td>조합·지부소식·공지·자료실·일정</td></tr>
+      <tr><td>⑤고객센터</td><td>방문/상담</td><td>오시는길·제휴상담</td><td>오시는길·메일문의</td></tr>
+      <tr><td>전용 로그인</td><td>—</td><td>admin.wslogis.co.kr</td><td>narami.or.kr/admin</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Issues -->
+  <h2 class="section">④ 실측 중 발견된 P0 품질 이슈</h2>
+  <div class="issues">
+    <div class="issue">
+      <div class="lv">🔴 P0 · 로지스</div>
+      <h4>사업영역 카드 중복 노출</h4>
+      <p>사회공헌·화물운송·식품운반 3종이 슬라이더에서 9개처럼 반복 노출. 슬라이드 데이터 정리 필요.</p>
+    </div>
+    <div class="issue">
+      <div class="lv">🔴 P0 · narami</div>
+      <h4>메인에 OAuth 오류 문구 노출</h4>
+      <p>인스타 피드 영역에 "Invalid OAuth 2.0 Access Token" 문구 그대로 표시. 토큰 갱신 필요.</p>
+    </div>
+    <div class="issue" style="border-left-color:#f59e0b">
+      <div class="lv" style="color:#f59e0b">🟠 P2 · 공통</div>
+      <h4>이메일 공유</h4>
+      <p>사협·로지스 모두 ws@wssc.kr 사용. 로지스 전용 메일 분리로 브랜드 독립성 검토.</p>
+    </div>
+  </div>
+
+  <footer>웰쉐어 드림팀 · 안토니 통합 · 3사 웹사이트 전 페이지 실측(2026-07-24) 기반 · 콘텐츠 변경 시 갱신</footer>
+</div>
+</body>
+</html>
